@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Dudhvala</string>
+    <string name="eggs">EGGS</string>
+    <string name="milk">MILK</string>
+    <string name="bread">BREAD</string>
+    <string name="out">CHECKOUT</string>
+    <string name="quantity">QUANTITY</string>
+
+
+
+</resources>
