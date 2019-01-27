@@ -22,7 +22,6 @@ public class WorkAdapter extends ArrayAdapter<Works> {
         if(listItems == null)
         {
             listItems= LayoutInflater.from(getContext()).inflate(R.layout.each_list,parent,false);
-
         }
         Works newWord =getItem(position);
         TextView headingtext=(TextView) listItems.findViewById(R.id.heading_list);
