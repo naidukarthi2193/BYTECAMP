@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "663160004087",
+    "firebase_url": "https://crime-filing.firebaseio.com",
+    "project_id": "crime-filing",
+    "storage_bucket": "crime-filing.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:663160004087:android:311e61e95958ec98",
+        "android_client_info": {
+          "package_name": "com.example.crime_fight"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "663160004087-2s8fe467uj8d5ms77ajl23ehbqnrgchf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.crime_fight",
+            "certificate_hash": "3e65845c301c74477adb6cca8b11538012565a60"
+          }
+        },
+        {
+          "client_id": "663160004087-op2sqpmoshml602fb6af34fsd8lkq3g3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXqwGpSOHqDwCdxovLlvEG7q2ZVCHVptg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "663160004087-op2sqpmoshml602fb6af34fsd8lkq3g3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

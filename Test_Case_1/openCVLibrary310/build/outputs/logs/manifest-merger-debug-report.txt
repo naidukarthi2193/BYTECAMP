@@ -1,12 +1,12 @@
 -- Merging decision tree log ---
 manifest
-ADDED from F:\Android Final Projects\Test_Case_1\openCVLibrary310\src\main\AndroidManifest.xml:2:1-8:12
-INJECTED from F:\Android Final Projects\Test_Case_1\openCVLibrary310\src\main\AndroidManifest.xml:2:1-8:12
-INJECTED from F:\Android Final Projects\Test_Case_1\openCVLibrary310\src\main\AndroidManifest.xml:2:1-8:12
-INJECTED from F:\Android Final Projects\Test_Case_1\openCVLibrary310\src\main\AndroidManifest.xml:2:1-8:12
-INJECTED from F:\Android Final Projects\Test_Case_1\openCVLibrary310\src\main\AndroidManifest.xml:2:1-8:12
-INJECTED from F:\Android Final Projects\Test_Case_1\openCVLibrary310\src\main\AndroidManifest.xml:2:1-8:12
-INJECTED from F:\Android Final Projects\Test_Case_1\openCVLibrary310\src\main\AndroidManifest.xml:2:1-8:12
+ADDED from F:\Android Final Projects\Test_Case_1\openCVLibrary310\src\main\AndroidManifest.xml:2:1-7:12
+INJECTED from F:\Android Final Projects\Test_Case_1\openCVLibrary310\src\main\AndroidManifest.xml:2:1-7:12
+INJECTED from F:\Android Final Projects\Test_Case_1\openCVLibrary310\src\main\AndroidManifest.xml:2:1-7:12
+INJECTED from F:\Android Final Projects\Test_Case_1\openCVLibrary310\src\main\AndroidManifest.xml:2:1-7:12
+INJECTED from F:\Android Final Projects\Test_Case_1\openCVLibrary310\src\main\AndroidManifest.xml:2:1-7:12
+INJECTED from F:\Android Final Projects\Test_Case_1\openCVLibrary310\src\main\AndroidManifest.xml:2:1-7:12
+INJECTED from F:\Android Final Projects\Test_Case_1\openCVLibrary310\src\main\AndroidManifest.xml:2:1-7:12
 	package
 		ADDED from F:\Android Final Projects\Test_Case_1\openCVLibrary310\src\main\AndroidManifest.xml:3:7-27
 		INJECTED from F:\Android Final Projects\Test_Case_1\openCVLibrary310\src\main\AndroidManifest.xml
@@ -22,12 +22,16 @@ INJECTED from F:\Android Final Projects\Test_Case_1\openCVLibrary310\src\main\An
 		INJECTED from F:\Android Final Projects\Test_Case_1\openCVLibrary310\src\main\AndroidManifest.xml
 		INJECTED from F:\Android Final Projects\Test_Case_1\openCVLibrary310\src\main\AndroidManifest.xml
 uses-sdk
-ADDED from F:\Android Final Projects\Test_Case_1\openCVLibrary310\src\main\AndroidManifest.xml:7:5-47
-INJECTED from F:\Android Final Projects\Test_Case_1\openCVLibrary310\src\main\AndroidManifest.xml:7:5-47
-INJECTED from F:\Android Final Projects\Test_Case_1\openCVLibrary310\src\main\AndroidManifest.xml:7:5-47
+INJECTED from F:\Android Final Projects\Test_Case_1\openCVLibrary310\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from F:\Android Final Projects\Test_Case_1\openCVLibrary310\src\main\AndroidManifest.xml
+INJECTED from F:\Android Final Projects\Test_Case_1\openCVLibrary310\src\main\AndroidManifest.xml
+INJECTED from F:\Android Final Projects\Test_Case_1\openCVLibrary310\src\main\AndroidManifest.xml
+INJECTED from F:\Android Final Projects\Test_Case_1\openCVLibrary310\src\main\AndroidManifest.xml
 	android:targetSdkVersion
-		ADDED from F:\Android Final Projects\Test_Case_1\openCVLibrary310\src\main\AndroidManifest.xml:7:15-44
+		INJECTED from F:\Android Final Projects\Test_Case_1\openCVLibrary310\src\main\AndroidManifest.xml
+		ADDED from F:\Android Final Projects\Test_Case_1\openCVLibrary310\src\main\AndroidManifest.xml
+		INJECTED from F:\Android Final Projects\Test_Case_1\openCVLibrary310\src\main\AndroidManifest.xml
 	android:minSdkVersion
 		INJECTED from F:\Android Final Projects\Test_Case_1\openCVLibrary310\src\main\AndroidManifest.xml
-		ADDED from F:\Android Final Projects\Test_Case_1\openCVLibrary310\src\main\AndroidManifest.xml:7:5-47
+		ADDED from F:\Android Final Projects\Test_Case_1\openCVLibrary310\src\main\AndroidManifest.xml
 		INJECTED from F:\Android Final Projects\Test_Case_1\openCVLibrary310\src\main\AndroidManifest.xml
