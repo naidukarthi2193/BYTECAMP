@@ -51,6 +51,8 @@ public class Add_Complain extends BottomSheetDialogFragment implements OnItemSel
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.add_complain_fragment,container,false);
+//        BottomSheetDialog dialog = new BottomSheetDialog(this,R.style.BottomSheetDialog);
+
 
         name_edit=(EditText)view.findViewById(R.id.editName);
         address_edit=(EditText)view.findViewById(R.id.editAddress);
@@ -85,6 +87,7 @@ public class Add_Complain extends BottomSheetDialogFragment implements OnItemSel
             public void onClick(View v) {
 
                 startActivity(closeFrag);
+
             }
         });
 
@@ -98,6 +101,15 @@ public class Add_Complain extends BottomSheetDialogFragment implements OnItemSel
                 myref.child("Complain").child(name_edit.getText().toString()).child("adharnumber").setValue(adhar_edit.getText().toString());
                 myref.child("Complain").child(name_edit.getText().toString()).child("policeStn").setValue(police_option);
                 myref.child("Complain").child(name_edit.getText().toString()).child("status").setValue("0");
+
+                myref.child("Police").child(police_option).child(name_edit.getText().toString()).child("name").setValue(name_edit.getText().toString());
+                myref.child("Police").child(police_option).child(name_edit.getText().toString()).child("address").setValue(address_edit.getText().toString());
+                myref.child("Police").child(police_option).child(name_edit.getText().toString()).child("complain").setValue(complain_edit.getText().toString());
+                myref.child("Police").child(police_option).child(name_edit.getText().toString()).child("adharnumber").setValue(adhar_edit.getText().toString());
+                myref.child("Police").child(police_option).child(name_edit.getText().toString()).child("status").setValue("0");
+                myref.child("Police").child(police_option).child(name_edit.getText().toString()).child("policeStn").setValue("0");
+
+
                 startActivity(closeFrag);
                 Toast.makeText(getContext(),"Complain Added",Toast.LENGTH_LONG).show();
 

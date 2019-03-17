@@ -8,22 +8,29 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Activities.Animation_Screen">
-
+        <activity android:name=".Activities.Police_Details"></activity>
+        <activity
+            android:name=".Activities.Animation_Screen"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.Police_Home"></activity>
-        <activity android:name=".Activities.Victim_Home" />
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity
+            android:name=".Activities.Police_Home"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".Activities.Victim_Home"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

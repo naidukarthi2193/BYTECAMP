@@ -24,21 +24,11 @@ public class Animation_Screen extends AppCompatActivity {
 
             @Override
             public void run() {
-                // if you are redirecting from a fragment then use getActivity() as the context.
                 startActivity(new Intent(Animation_Screen.this, MainActivity.class));
-
+                Animation_Screen.this.finish();
             }
         };
-
-
         Handler h = new Handler();
-        // The Runnable will be executed after the given delay time
-        h.postDelayed(r, 6000); // will be delayed for 1.5 seconds
-
-
-
-
-
+        h.postDelayed(r, 5000);
     }
-
 }

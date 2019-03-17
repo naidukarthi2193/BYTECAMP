@@ -1,17 +1,16 @@
 package com.example.crime_fight.Activities;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.View;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.example.crime_fight.Adapters.ComplainAdapter;
-import com.example.crime_fight.Fragments.Add_Complain;
+import com.example.crime_fight.Adapters.PoliceAdapter;
 import com.example.crime_fight.Models.ComplainModel;
 import com.example.crime_fight.R;
 import com.google.firebase.FirebaseApp;
@@ -22,43 +21,46 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import static android.support.constraint.Constraints.TAG;
 
-public class Victim_Home extends AppCompatActivity {
-    private FloatingActionButton filecomplain;
+public class Police_Details extends AppCompatActivity {
 
-    private RecyclerView victim_Recycler;
-    private ComplainAdapter victim_recycler_adapter;
+    private String Police;
 
-    private ArrayList<ComplainModel> complainlist;
+    private RecyclerView police_Recycler;
+    private PoliceAdapter police_recycler_adapter;
+
+    private ArrayList<ComplainModel> policelist;
     private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_victim__home);
+        setContentView(R.layout.activity_police__details);
+
+        Intent getIntent = getIntent();
+        Police = getIntent.getStringExtra("POLICE");
+
         FirebaseApp.initializeApp(this);
-        victim_Recycler =(RecyclerView) findViewById(R.id.victim_recycler);
+        police_Recycler =(RecyclerView) findViewById(R.id.police_Recycler);
         LinearLayoutManager layoutmanage  = new LinearLayoutManager(this);
         layoutmanage.setOrientation(LinearLayoutManager.VERTICAL);
-        victim_Recycler.setLayoutManager(layoutmanage);
-        complainlist = new ArrayList<ComplainModel>();
+        police_Recycler.setLayoutManager(layoutmanage);
+        policelist = new ArrayList<ComplainModel>();
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        mDatabase.child("Complain").addValueEventListener(new ValueEventListener() {
+        mDatabase.child("Police").child(Police).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                complainlist.clear();
+                policelist.clear();
                 for (DataSnapshot uniquesnapshot : dataSnapshot.getChildren()){
-
-                    complainlist.add(uniquesnapshot.getValue(ComplainModel.class));
-
+//                        Log.d("DetailActivity ", "Food Type " + uniquesnapshot.getValue(HotelModel.class).getName());
+                    policelist.add(uniquesnapshot.getValue(ComplainModel.class));
                 }
 
-                Log.d(TAG, "onDataChange: size " + complainlist.size());
-                victim_recycler_adapter.notifyDataSetChanged();
+                Log.d(TAG, "onDataChange: siiize " + policelist.size());
+                police_recycler_adapter.notifyDataSetChanged();
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -66,22 +68,19 @@ public class Victim_Home extends AppCompatActivity {
             }
         });
 
-        victim_recycler_adapter = new ComplainAdapter(getBaseContext(),complainlist);
-        victim_Recycler.setAdapter(victim_recycler_adapter);
+        police_recycler_adapter = new PoliceAdapter(getBaseContext(),policelist);
+        police_Recycler.setAdapter(police_recycler_adapter);
 
-        filecomplain=(FloatingActionButton)findViewById(R.id.complain_file);
-        filecomplain.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                Add_Complain bottomsheet = new Add_Complain();
-                bottomsheet.show(getSupportFragmentManager(),"ExampleBottomSheet");
 
-            }
-        });
+
+
+
+
+
+
+
+
 
     }
-
-
-
 }
