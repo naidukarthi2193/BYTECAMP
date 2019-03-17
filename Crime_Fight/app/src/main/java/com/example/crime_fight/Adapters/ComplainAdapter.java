@@ -69,12 +69,12 @@ public class ComplainAdapter extends RecyclerView.Adapter<ComplainAdapter.ViewHo
                     holder.status.setTextColor(Color.parseColor("#FFFF00"));
                     break;
                 case "2":
-                    holder.status.setText("Stopped");
-                    holder.status.setTextColor(Color.parseColor("#DC143C"));
-                    break;
-                case "3":
                     holder.status.setText("Completed");
                     holder.status.setTextColor(Color.parseColor("#00FF00"));
+                    break;
+                case "3":
+                    holder.status.setText("Stopped");
+                    holder.status.setTextColor(Color.parseColor("#DC143C"));
                     break;
             }
 

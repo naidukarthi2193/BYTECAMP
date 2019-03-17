@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(intentvictim);
-                MainActivity.this.finish();
+
             }
         });
 
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(intentpolice);
-                MainActivity.this.finish();
+
             }
         });
 

@@ -107,7 +107,7 @@ public class Add_Complain extends BottomSheetDialogFragment implements OnItemSel
                 myref.child("Police").child(police_option).child(name_edit.getText().toString()).child("complain").setValue(complain_edit.getText().toString());
                 myref.child("Police").child(police_option).child(name_edit.getText().toString()).child("adharnumber").setValue(adhar_edit.getText().toString());
                 myref.child("Police").child(police_option).child(name_edit.getText().toString()).child("status").setValue("0");
-                myref.child("Police").child(police_option).child(name_edit.getText().toString()).child("policeStn").setValue("0");
+                myref.child("Police").child(police_option).child(name_edit.getText().toString()).child("policeStn").setValue(police_option);
 
 
                 startActivity(closeFrag);

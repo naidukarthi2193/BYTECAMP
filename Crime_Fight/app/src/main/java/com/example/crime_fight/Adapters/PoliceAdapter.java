@@ -6,10 +6,12 @@ import android.content.Context;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,10 +26,9 @@ import java.util.List;
 
 public class PoliceAdapter extends  RecyclerView.Adapter<PoliceAdapter.ViewHolder>  {
 
-    private List<ComplainModel> police_list,complains ;
+    private ArrayList<ComplainModel> police_list,complains ;
     Context context,ctx;
 
-//    private final View.OnClickListener mOnClickListener = new MyOnClickListener();
 
 
 
@@ -43,6 +44,7 @@ public class PoliceAdapter extends  RecyclerView.Adapter<PoliceAdapter.ViewHolde
             super(itemView);
             this.dialogComp=compList;
             this.ctx=ctx;
+
             itemView.setOnClickListener(this);
             name = (TextView)itemView.findViewById(R.id.policelist_name);
             complain= (TextView)itemView.findViewById(R.id.policelist_complain);
@@ -51,10 +53,22 @@ public class PoliceAdapter extends  RecyclerView.Adapter<PoliceAdapter.ViewHolde
 
         @Override
         public void onClick(View v) {
+
+//            Toast.makeText(v.getContext(),"Clicked",Toast.LENGTH_SHORT).show();
+
+
             int position = getAdapterPosition();
             final ComplainModel dialogInfo = this.dialogComp.get(position);
+            Toast.makeText(v.getContext(),dialogInfo.getName()+dialogInfo.getComplain()+dialogInfo
+                    .getAdharnumber()+"xx"+dialogInfo.getPoliceStn()+dialogInfo.getStatus(),Toast.LENGTH_SHORT).show();
+//
+//            AlertDialog.Builder mBuilder = new AlertDialog.Builder(v.getContext());
+//            mBuilder.setTitle("Hello");
+//            mBuilder.show();
+
             final Dialog dialog = new Dialog(ctx);
             dialog.setContentView(R.layout.police_status_dialog);
+            dialog.setTitle("Status");
             final TextView name = (TextView)dialog.findViewById(R.id.nameValue);
             name.setText(dialogInfo.getName());
             TextView adhar  = (TextView)dialog.findViewById(R.id.adharValue);
@@ -63,6 +77,13 @@ public class PoliceAdapter extends  RecyclerView.Adapter<PoliceAdapter.ViewHolde
             comps.setText(dialogInfo.getComplain());
              TextView address = (TextView)dialog.findViewById((R.id.addressValue));
             address.setText(dialogInfo.getAddress());
+            ImageView closer =(ImageView)dialog.findViewById(R.id.close);
+            closer.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+                }
+            });
             TextView status = (TextView)dialog.findViewById(R.id.statusValue);
             switch (dialogInfo.getStatus()){
                 case "0":
@@ -74,12 +95,12 @@ public class PoliceAdapter extends  RecyclerView.Adapter<PoliceAdapter.ViewHolde
                     status.setTextColor(Color.parseColor("#FFFF00"));
                     break;
                 case "2":
-                    status.setText("Stopped");
-                    status.setTextColor(Color.parseColor("#DC143C"));
-                    break;
-                case "3":
                     status.setText("Completed");
                     status.setTextColor(Color.parseColor("#00FF00"));
+                    break;
+                case "3":
+                    status.setText("Stopped");
+                    status.setTextColor(Color.parseColor("#DC143C"));
                     break;
 
             }
@@ -92,7 +113,7 @@ public class PoliceAdapter extends  RecyclerView.Adapter<PoliceAdapter.ViewHolde
                     myref =  FirebaseDatabase.getInstance().getReference();
                     myref.child("Complain").child(name.getText().toString()).child("status").setValue("1");
                     myref.child("Police").child(dialogInfo.getPoliceStn()).child(name.getText().toString()).child("status").setValue("1");
-                    Toast.makeText(v.getContext(),"Complain Accepted",Toast.LENGTH_LONG);
+                    Toast.makeText(ctx,"Complain Accepted",Toast.LENGTH_LONG);
                     dialog.dismiss();
                 }
             });
@@ -100,11 +121,12 @@ public class PoliceAdapter extends  RecyclerView.Adapter<PoliceAdapter.ViewHolde
             complete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
                     DatabaseReference myref;
                     myref =  FirebaseDatabase.getInstance().getReference();
                     myref.child("Complain").child(name.getText().toString()).child("status").setValue("2");
                     myref.child("Police").child(dialogInfo.getPoliceStn()).child(name.getText().toString()).child("status").setValue("2");
-                    Toast.makeText(v.getContext(),"Complain Completed",Toast.LENGTH_LONG);
+                    Toast.makeText(ctx,"Complain Completed",Toast.LENGTH_LONG);
                     dialog.dismiss();
                 }
             });
@@ -114,19 +136,24 @@ public class PoliceAdapter extends  RecyclerView.Adapter<PoliceAdapter.ViewHolde
                 public void onClick(View v) {
                     DatabaseReference myref;
                     myref =  FirebaseDatabase.getInstance().getReference();
-                    myref.child("Complain").child(name.getText().toString()).child("status").setValue("4");
-                    myref.child("Police").child(dialogInfo.getPoliceStn()).child(name.getText().toString()).child("status").setValue("4");
-                    Toast.makeText(v.getContext(),"Complain Closed",Toast.LENGTH_LONG);
+                    myref.child("Complain").child(name.getText().toString()).child("status").setValue("3");
+                    myref.child("Police").child(dialogInfo.getPoliceStn()).child(name.getText().toString()).child("status").setValue("3");
+                    Toast.makeText(ctx,"Complain Closed",Toast.LENGTH_LONG);
                     dialog.dismiss();
                 }
             });
+
+            dialog.setCancelable(true);
+            dialog.setCanceledOnTouchOutside(true);
+            dialog.show();
+            dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
 
 
         }
     }
 
-    public PoliceAdapter(Context context,List<ComplainModel> policelist){
+    public PoliceAdapter(Context context,ArrayList<ComplainModel> policelist){
         this.police_list=policelist;
         this.context=context;
     }
@@ -147,12 +174,12 @@ public class PoliceAdapter extends  RecyclerView.Adapter<PoliceAdapter.ViewHolde
                 holder.status.setTextColor(Color.parseColor("#FFFF00"));
                 break;
             case "2":
-                holder.status.setText("Stopped");
-                holder.status.setTextColor(Color.parseColor("#DC143C"));
-                break;
-            case "3":
                 holder.status.setText("Completed");
                 holder.status.setTextColor(Color.parseColor("#00FF00"));
+                break;
+            case "3":
+                holder.status.setText("Stopped");
+                holder.status.setTextColor(Color.parseColor("#DC143C"));
                 break;
         }
 
@@ -170,7 +197,7 @@ public class PoliceAdapter extends  RecyclerView.Adapter<PoliceAdapter.ViewHolde
 
         return new PoliceAdapter.ViewHolder(
                 LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.policelisteach,viewGroup,false),
-                viewGroup.getContext(),complains
+                viewGroup.getContext(),police_list
                 );
     }
 
