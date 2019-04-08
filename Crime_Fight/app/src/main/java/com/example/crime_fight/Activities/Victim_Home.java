@@ -52,7 +52,6 @@ public class Victim_Home extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 complainlist.clear();
                 for (DataSnapshot uniquesnapshot : dataSnapshot.getChildren()){
-
                     complainlist.add(uniquesnapshot.getValue(ComplainModel.class));
 
                 }
